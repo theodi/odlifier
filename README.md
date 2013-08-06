@@ -1,5 +1,8 @@
 # ODLifier
 
+[![Build Status](http://jenkins.theodi.org/job/ODLifier-master/badge/icon)](http://jenkins.theodi.org/job/ODLifier-master/)
+[![Code Climate](https://codeclimate.com/github/theodi/ODLifier.png)](https://codeclimate.com/github/theodi/ODLifier)
+
 Gets information on a license from the Open Knowledge Foundation's [Open Licenses Service](http://licenses.opendefinition.org/).
 
 # Licence
