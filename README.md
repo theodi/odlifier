@@ -13,7 +13,7 @@ This code is open source under the MIT license. See the LICENSE.md file for full
 
 Add the gem to your Gemfile:
 
-	gem 'odlifier', :github => 'theodi/odlifier'
+	gem 'odlifier', :github => 'theodi/ODLifier'
 		
 Require if you need to:
 
@@ -21,7 +21,7 @@ Require if you need to:
 		
 Request a licence
 
-	license = ODLifier.new("odc-by")
+	license = ODLifier::License.new("odc-by")
 	
 Use the results
 
