@@ -4,7 +4,7 @@ describe ODLifier do
   
     before :all do
       VCR.use_cassette('license') do
-        @license = ODLifier.new("odc-by")
+        @license = ODLifier::License.new("odc-by")
       end
     end
       

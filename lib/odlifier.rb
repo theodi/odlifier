@@ -1,13 +1,14 @@
 require 'httparty'
 
-class ODLifier
-  include HTTParty
+module ODLifier
+  class License
+    include HTTParty
   
-  def initialize(id)
-    response = self.class.get("http://licenses.opendefinition.org/licenses/#{id}.json")
-    response.parsed_response.each do |key, val|
-      self.class.send(:define_method, key.to_sym) { val }
+    def initialize(id)
+      response = self.class.get("http://licenses.opendefinition.org/licenses/#{id}.json")
+      response.parsed_response.each do |key, val|
+        self.class.send(:define_method, key.to_sym) { val }
+      end
     end
   end
-  
 end
