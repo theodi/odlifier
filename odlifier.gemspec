@@ -6,7 +6,7 @@ require "odlifier/version"
 
 Gem::Specification.new do |s|
   s.name        = 'odlifier'
-  s.version     =  odlifier::VERSION
+  s.version     =  Odlifier::VERSION
   s.date        = '2013-08-06'
   s.summary     = "Get information about an open licence using a simple identifier"
   s.authors     = ["Stuart Harrison"]
