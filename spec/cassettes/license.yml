@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://licenses.opendefinition.org/licenses/odc-by.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - GitHub.com
+      content-type:
+      - application/json
+      last-modified:
+      - Thu, 14 Mar 2013 21:52:27 GMT
+      expires:
+      - Tue, 06 Aug 2013 10:39:27 GMT
+      cache-control:
+      - max-age=600
+      content-length:
+      - '333'
+      accept-ranges:
+      - bytes
+      date:
+      - Tue, 06 Aug 2013 10:29:27 GMT
+      via:
+      - 1.1 varnish
+      age:
+      - '0'
+      connection:
+      - close
+      x-served-by:
+      - cache-l22-LON
+      x-cache:
+      - MISS
+      x-cache-hits:
+      - '0'
+      x-timer:
+      - S1375784967.355853081,VS0,VE79
+      vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: "{\n  \"domain_content\": false, \n  \"domain_data\": true, \n  \"domain_software\":
+        false, \n  \"family\": \"\", \n  \"id\": \"odc-by\", \n  \"is_okd_compliant\":
+        true, \n  \"is_osi_compliant\": false, \n  \"maintainer\": \"\", \n  \"status\":
+        \"active\", \n  \"title\": \"Open Data Commons Attribution License\", \n  \"url\":
+        \"http://www.opendefinition.org/licenses/odc-by\"\n}"
+    http_version: '1.1'
+  recorded_at: Tue, 06 Aug 2013 10:29:31 GMT
+recorded_with: VCR 2.5.0
