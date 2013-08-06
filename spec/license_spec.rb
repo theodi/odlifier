@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe ODLifier do
+describe Odlifier do
   
     before :all do
       VCR.use_cassette('license') do
-        @license = ODLifier::License.new("odc-by")
+        @license = Odlifier::License.new("odc-by")
       end
     end
       
@@ -55,7 +55,7 @@ describe ODLifier do
     it 'returns nil when the ID cannot be found' do
       VCR.use_cassette('license-made-up') do
         id = "this-is-obviously-made-up"
-        expect { ODLifier::License.new(id) }.to raise_error(ArgumentError)
+        expect { Odlifier::License.new(id) }.to raise_error(ArgumentError)
       end
     end
     

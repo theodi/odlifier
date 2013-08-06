@@ -1,6 +1,6 @@
 require 'httparty'
 
-module ODLifier
+module Odlifier
   class License
     include HTTParty
   
