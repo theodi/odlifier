@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ODLifier (0.0.1)
+    odlifier (0.0.1)
       httparty
 
 GEM
@@ -41,8 +41,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ODLifier!
   fakeweb
+  odlifier!
   pry
   rspec
   simplecov-rcov
