@@ -21,7 +21,7 @@ Require if you need to:
 		
 Request a licence
 
-	license = ODLifier::License.new("odc-by")
+	license = Odlifier::License.new("odc-by")
 	
 Use the results
 
