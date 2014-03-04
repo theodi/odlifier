@@ -1,7 +1,12 @@
-# ODLifier
+[![Build Status](http://img.shields.io/travis/theodi/odlifier.svg)](https://travis-ci.org/theodi/odlifier)
+[![Dependency Status](http://img.shields.io/gemnasium/theodi/odlifier.svg)](https://gemnasium.com/theodi/odlifier)
+[![Coverage Status](http://img.shields.io/coveralls/theodi/odlifier.svg)](https://coveralls.io/r/theodi/odlifier)
+[![Code Climate](http://img.shields.io/codeclimate/github/theodi/odlifier.svg)](https://codeclimate.com/github/theodi/odlifier)
+[![Gem Version](http://img.shields.io/gem/v/odlifier.svg)](https://rubygems.org/gems/odlifier)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://theodi.mit-license.org)
+[![Badges](http://img.shields.io/:badges-7/7-ff6799.svg)](https://github.com/pikesley/badger)
 
-[![Build Status](http://jenkins.theodi.org/job/ODLifier-master/badge/icon)](http://jenkins.theodi.org/job/ODLifier-master/)
-[![Code Climate](https://codeclimate.com/github/theodi/ODLifier.png)](https://codeclimate.com/github/theodi/ODLifier)
+# ODLifier
 
 Gets information on a license from the Open Knowledge Foundation's [Open Licenses Service](http://licenses.opendefinition.org/).
 

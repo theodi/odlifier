@@ -1,10 +1,7 @@
-require 'simplecov'
-require 'simplecov-rcov'
+require 'coveralls'
+Coveralls.wear!
+
 require 'vcr'
-
-SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
-SimpleCov.start
-
 require 'odlifier'
 
 VCR.configure do |c|
