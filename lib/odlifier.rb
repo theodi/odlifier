@@ -3,13 +3,17 @@ require 'httparty'
 module Odlifier
   class License
     include HTTParty
-  
-    def initialize(id)
-      response = self.class.get("http://licenses.opendefinition.org/licenses/#{id}.json")
+
+    def initialize(hash)
+      hash.each do |key, val|
+        self.class.send(:define_method, key.to_sym) { val }
+      end
+    end
+
+    def self.define(id)
+      response = self.get("http://licenses.opendefinition.org/licenses/#{id.upcase}.json")
       unless response.header.code == "404"
-        response.parsed_response.each do |key, val|
-          self.class.send(:define_method, key.to_sym) { val }
-        end
+        License.new(response.parsed_response)
       else
         raise ArgumentError, "License with the id '#{id}' cannot be found"
       end

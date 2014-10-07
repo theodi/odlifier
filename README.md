@@ -19,15 +19,15 @@ This code is open source under the MIT license. See the LICENSE.md file for full
 Add the gem to your Gemfile:
 
 	gem 'odlifier', :github => 'theodi/ODLifier'
-		
+
 Require if you need to:
 
 	require 'odlifier'
-		
+
 Request a licence
 
-	license = Odlifier::License.new("odc-by")
-	
+	license = Odlifier::License.define("odc-by-1.0")
+
 Use the results
 
 	license.domain_content
@@ -41,7 +41,7 @@ Use the results
 	license.status
 	license.title
 	license.url
-	
+
 # Contributing
 
 1. Fork it
@@ -49,6 +49,3 @@ Use the results
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
 5. Create new Pull Request
-	
-
-		
