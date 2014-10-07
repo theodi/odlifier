@@ -53,4 +53,57 @@ http_interactions:
         \"http://www.opendefinition.org/licenses/odc-by\"\n}"
     http_version: '1.1'
   recorded_at: Tue, 06 Aug 2013 10:29:31 GMT
-recorded_with: VCR 2.5.0
+- request:
+    method: get
+    uri: http://licenses.opendefinition.org/licenses/ODC-BY-1.0.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - GitHub.com
+      content-type:
+      - application/json
+      last-modified:
+      - Tue, 12 Aug 2014 16:24:33 GMT
+      expires:
+      - Tue, 07 Oct 2014 14:30:21 GMT
+      cache-control:
+      - max-age=600
+      content-length:
+      - '371'
+      accept-ranges:
+      - bytes
+      date:
+      - Tue, 07 Oct 2014 15:11:54 GMT
+      via:
+      - 1.1 varnish
+      age:
+      - '3093'
+      connection:
+      - close
+      x-served-by:
+      - cache-lcy1125-LCY
+      x-cache:
+      - HIT
+      x-cache-hits:
+      - '1'
+      x-timer:
+      - S1412694714.194110,VS0,VE90
+      vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: "{\n  \"domain_content\": false, \n  \"domain_data\": true, \n  \"domain_software\":
+        false, \n  \"family\": \"\", \n  \"id\": \"ODC-BY-1.0\", \n  \"od_conformance\":
+        \"approved\", \n  \"osd_conformance\": \"not reviewed\", \n  \"maintainer\":
+        \"Open Data Commons\", \n  \"status\": \"active\", \n  \"title\": \"Open Data
+        Commons Attribution License 1.0\", \n  \"url\": \"http://www.opendefinition.org/licenses/odc-by\"\n}\n"
+    http_version: '1.1'
+  recorded_at: Tue, 07 Oct 2014 15:12:02 GMT
+recorded_with: VCR 2.8.0
