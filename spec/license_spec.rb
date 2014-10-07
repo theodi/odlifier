@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Odlifier do
+describe Odlifier::License do
 
     before :all do
       VCR.use_cassette('license') do
