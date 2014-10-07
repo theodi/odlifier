@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Odlifier::License do
 
+  context 'when version number is specified' do
     before :all do
       VCR.use_cassette('license') do
         @license = Odlifier::License.define("odc-by-1.0")
@@ -51,12 +52,20 @@ describe Odlifier::License do
     it 'returns the correct url' do
       @license.url.should == "http://www.opendefinition.org/licenses/odc-by"
     end
+  end
 
-    it 'returns nil when the ID cannot be found' do
-      VCR.use_cassette('license-made-up') do
-        id = "this-is-obviously-made-up"
-        expect { Odlifier::License.define(id) }.to raise_error(ArgumentError)
-      end
+  it 'returns nil when the ID cannot be found' do
+    VCR.use_cassette('license-made-up') do
+      id = "this-is-obviously-made-up"
+      expect { Odlifier::License.define(id) }.to raise_error(ArgumentError)
     end
+  end
+
+  it 'tries to get a license when the version number is not specified' do
+    VCR.use_cassette('license-no-version-number') do
+      license = Odlifier::License.define("ogl-uk")
+      license.id.should == "OGL-UK-2.0"
+    end
+  end
 
 end
