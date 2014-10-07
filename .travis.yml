@@ -10,3 +10,12 @@ notifications:
     - '%{repository} %{branch} - %{message} %{build_url}'
     on_success: change
     on_failure: always
+deploy:
+  provider: rubygems
+  api_key:
+    secure: Td9csYhn39HdYzcn8l13+wkhnwJPMwU6qQ9enLz6V1CU5G8cxh5Qb7vIQIXRddRMx1ijlpFenPES5tqoPe10SrwAw7pK50f12+tfKbmIdik1EpOiQmEVbVWn7zAUYBJrS83K4KpefhGCWNxhiZ2Sdwr+cXQ3HZyCAe3VPcv+g9E=
+  gem: odlifier
+  on:
+    tags: true
+    repo: theodi/odlifier
+    all_branches: true
