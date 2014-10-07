@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    odlifier (0.0.1)
+    odlifier (0.1.0)
       httparty
 
 GEM
