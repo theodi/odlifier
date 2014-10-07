@@ -18,7 +18,7 @@ This code is open source under the MIT license. See the LICENSE.md file for full
 
 Add the gem to your Gemfile:
 
-	gem 'odlifier', :github => 'theodi/ODLifier'
+	gem 'odlifier'
 
 Require if you need to:
 
