@@ -19,3 +19,8 @@ deploy:
     tags: true
     repo: theodi/odlifier
     all_branches: true
+after_success:
+  - export GEM_VERSION=`ruby -r./lib/odlifier/version -e "puts Odlifier::VERSION"`
+  - ! '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] &&
+  curl -v -X POST -d ''{"ref":"refs/tags/$GEM_VERSION","sha":"''$TRAVIS_COMMIT''"}''  --header
+  "Content-Type:application/json" -u $GITHUB_USER:$GITHUB_PASSWORD "https://api.github.com/repos/$TRAVIS_REPO_SLUG/git/refs"'
