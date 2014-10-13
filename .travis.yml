@@ -20,7 +20,11 @@ deploy:
     repo: theodi/odlifier
     all_branches: true
 after_success:
-  - export GEM_VERSION=`ruby -r./lib/odlifier/version -e "puts Odlifier::VERSION"`
-  - ! '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] &&
-  curl -v -X POST -d ''{"ref":"refs/tags/$GEM_VERSION","sha":"''$TRAVIS_COMMIT''"}''  --header
+- export GEM_VERSION=`ruby -r./lib/odlifier/version -e "puts Odlifier::VERSION"`
+- '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && curl
+  -v -X POST -d ''{"ref":"refs/tags/$GEM_VERSION","sha":"''$TRAVIS_COMMIT''"}''  --header
   "Content-Type:application/json" -u $GITHUB_USER:$GITHUB_PASSWORD "https://api.github.com/repos/$TRAVIS_REPO_SLUG/git/refs"'
+env:
+  global:
+  - secure: dZFXoQvvFnlHr4oLyIg6HEUMewvI052VzIOxY1MAIaKrxM2mwEXB/Q17IZO0/Yd0wZezIIbdHdKfaryPuCrCf2GvxQc75BhgFS+Dv3byCRHrkpnudp/3bf0iJltQKqh52Rf5Y/5WVNgHxwxFz49aKH5QFeN2k4JS7ymkaKMrDpA=
+  - secure: El7wVwSUQbc0U8fvhOrI+bLwAUAEgvhELKApqh0kX6CBrBeYuAxZJfw+nzuBpMkrXOcSxNj383YImChyHSuTVhZ1diyS6LAaLHO0fMTV6J9B1xVPX2W0tGonUgzDWEChREOT1Xk7ej6BR7dYsDUzQEdZT1VCiIU4DJgnXZAssZY=
