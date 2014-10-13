@@ -5,7 +5,7 @@ describe Odlifier::License do
   context 'when version number is specified' do
     before :all do
       VCR.use_cassette('license') do
-        @license = Odlifier::License.define("odc-by-1.0")
+        @license = Odlifier::License.define("ODC-BY-1.0")
       end
     end
 
@@ -63,8 +63,15 @@ describe Odlifier::License do
 
   it 'tries to get a license when the version number is not specified' do
     VCR.use_cassette('license-no-version-number') do
-      license = Odlifier::License.define("ogl-uk")
+      license = Odlifier::License.define("OGL-UK")
       license.id.should == "OGL-UK-2.0"
+    end
+  end
+
+  it 'tries to get versioned license when key is lowercase' do
+    VCR.use_cassette('license') do
+      license = Odlifier::License.define("odc-by-1.0")
+      license.id.should == "ODC-BY-1.0"
     end
   end
 

@@ -11,7 +11,7 @@ module Odlifier
     end
 
     def self.define(id)
-      response = self.get("http://licenses.opendefinition.org/licenses/#{id.upcase}.json")
+      response = self.get("http://licenses.opendefinition.org/licenses/#{id}.json")
       unless response.header.code == "404"
         License.new(response.parsed_response)
       else
@@ -29,9 +29,17 @@ module Odlifier
       candidates = []
       response = self.get("http://licenses.opendefinition.org/licenses/groups/all.json")
       response.parsed_response.each do |key, val|
-        candidates << val if key.match /#{id}-[0-9]+\.[0-9]+/i
+        candidates << val if license_id_matches(id, key)
       end
       candidates
+    end
+
+    def self.license_id_matches(id, key)
+      if id.match /[0-9]+\.[0-9]+$/
+        key.match /#{id}/i
+      else
+        key.match /#{id}-[0-9]+\.[0-9]+/i
+      end
     end
 
   end
