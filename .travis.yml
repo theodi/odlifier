@@ -20,7 +20,7 @@ deploy:
     repo: theodi/odlifier
     all_branches: true
 after_success:
-- export GEM_VERSION=`ruby -r./lib/odlifier/version -e "puts Odlifier::VERSION"`
+- export GEM_VERSION=`ruby -e "puts Gem::Specification.load(Dir['*.gemspec'].first).version.to_s"`
 - '[ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && curl
   -v -X POST -d ''{"ref":"refs/tags/$GEM_VERSION","sha":"''$TRAVIS_COMMIT''"}''  --header
   "Content-Type:application/json" -u $GITHUB_USER:$GITHUB_PASSWORD "https://api.github.com/repos/$TRAVIS_REPO_SLUG/git/refs"'
