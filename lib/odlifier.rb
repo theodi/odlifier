@@ -4,6 +4,8 @@ module Odlifier
   class License
     include HTTParty
 
+    ODL_PREFIX = 'http://licenses.opendefinition.org'
+
     def initialize(hash)
       hash.each do |key, val|
         self.class.send(:define_method, key.to_sym) { val }
@@ -11,7 +13,7 @@ module Odlifier
     end
 
     def self.define(id)
-      response = self.get("http://licenses.opendefinition.org/licenses/#{id}.json")
+      response = self.get("#{ODL_PREFIX}/licenses/#{id}.json")
       unless response.header.code == "404"
         License.new(response.parsed_response)
       else
@@ -27,18 +29,18 @@ module Odlifier
 
     def self.gather_candidiates(id)
       candidates = []
-      response = self.get("http://licenses.opendefinition.org/licenses/groups/all.json")
+      response = self.get("#{ODL_PREFIX}/licenses/groups/all.json")
       response.parsed_response.each do |key, val|
-        candidates << val if license_id_matches(id, key)
+        candidates << val if license_id_matches(id, val)
       end
       candidates
     end
 
-    def self.license_id_matches(id, key)
+    def self.license_id_matches(id, val)
       if id.match /[0-9]+\.[0-9]+$/
-        key.match /#{id}/i
+        val['id'].match /#{id}/i or (val['legacy_id'] and val['legacy_id'].match /#{id}/i)
       else
-        key.match /#{id}-[0-9]+\.[0-9]+/i
+        val['id'].match /#{id}-[0-9]+\.[0-9]+/i or (val['legacy_id'] and val['legacy_id'].match /#{id}-[0-9]+\.[0-9]+/i)
       end
     end
 
