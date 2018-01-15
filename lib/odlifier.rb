@@ -38,9 +38,9 @@ module Odlifier
 
     def self.license_id_matches(id, val)
       if id.match /[0-9]+\.[0-9]+$/
-        val['id'].match /#{id}/i or (val['legacy_id'] and val['legacy_id'].match /#{id}/i)
+        val['id'].match /#{id}/i or (val['legacy_ids'] and val['legacy_ids'].grep(/#{id}/i).length > 0)
       else
-        val['id'].match /#{id}-[0-9]+\.[0-9]+/i or (val['legacy_id'] and val['legacy_id'].match /#{id}-[0-9]+\.[0-9]+/i)
+        val['id'].match /#{id}-[0-9]+\.[0-9]+/i or (val['legacy_ids'] and val['legacy_ids'].grep(/#{id}-[0-9]+\.[0-9]+/i).length > 0)
       end
     end
 
