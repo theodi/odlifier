@@ -75,4 +75,10 @@ describe Odlifier::License do
     end
   end
 
+  it 'get current ID when key is a legacy ID' do
+    VCR.use_cassette('legacy-id') do
+      license = Odlifier::License.define('eclipse-1.0')
+      license.id.should == 'EPL-1.0'
+    end
+  end
 end
